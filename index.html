@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c211f">
+<meta name="description" content="시금치 잎 디스크의 부상으로 빛의 파장에 따른 광합성 반응을 비교하는 과학적 교육용 시뮬레이션">
+<title>광합성 파장 탐구 실험실 | 종속 변인 2개 비교</title>
+<style>
+
+:root{color-scheme:light;--ink:#12342e;--deep:#0c2421;--muted:#62756e;--line:#dfebe5;--paper:#f3f8f4;--white:#fff;--green:#247d68;--red:#f06458;--blue:#5885ec;--lime:#cfff83;--round:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans','Noto Sans KR',system-ui,-apple-system,sans-serif;line-height:1.55;font-size:14px}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #92b9fc;outline-offset:3px}a{color:inherit} .layout{max-width:1400px;margin:auto;padding:0 33px}
+header{background:var(--deep);color:#f7fff7;border-bottom:1px solid #25453d}header .layout{height:70px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.6px;font-size:16px}.brand-icon{width:34px;height:34px;background:#d4f8a1;border-radius:10px;display:grid;place-items:center;color:#113d2b}.top-tag{font-size:11px;font-weight:800;letter-spacing:.1em;border:1px solid #527264;color:#b4d6c5;border-radius:50px;padding:6px 12px;white-space:nowrap}
+.hero{background:radial-gradient(ellipse 650px 310px at 87% 25%,#244a39 0%,transparent 70%),linear-gradient(125deg,#0d2924,#10392f);color:white;position:relative;overflow:hidden;padding:48px 0 47px}.hero:after{content:'';position:absolute;right:-45px;bottom:-133px;border:1px solid #456450;border-radius:50%;width:360px;height:360px;box-shadow:0 0 0 50px #ffffff05,0 0 0 110px #ffffff03;pointer-events:none}.hero-content{position:relative;z-index:1}.eyebrow{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.13em;font-size:11px;font-weight:900;color:#bef189}.eyebrow:before{content:'';height:7px;width:7px;border-radius:50%;background:#caff88}.hero h1{font-size:clamp(26px,3.2vw,42px);line-height:1.35;font-weight:900;letter-spacing:-1.4px;margin:12px 0 11px}.hero h1 em{font-style:normal;color:#d3f99a}.hero p{color:#bad4c8;max-width:730px;margin:0;font-size:14px;line-height:1.9}.hero-info{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}.info-tag{background:#ffffff12;border:1px solid #ffffff16;border-radius:999px;padding:7px 12px;color:#d9eadf;font-size:12px;font-weight:650}.info-tag b{color:white}.info-tag .spark{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}
+.content{padding-top:27px;padding-bottom:56px}.columns{display:grid;grid-template-columns:minmax(280px,330px) minmax(0,1fr);gap:19px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:var(--round);box-shadow:0 7px 33px #24483308;overflow:hidden}.panel-pad{padding:23px}.panel-title{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:900;letter-spacing:-.5px;margin:0}.panel-title svg{color:#286d59}.subtitle{color:var(--muted);font-size:12px;margin:5px 0 0}.rule{border:0;border-top:1px solid var(--line);margin:20px 0 19px}
+.control{position:sticky;top:12px}.control-group{margin:20px 0}.range-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}.range-header label{font-weight:800;font-size:13px}.range-header output{font-weight:900;font-variant-numeric:tabular-nums;color:#195c4b}.unit{font-size:10px;color:var(--muted);font-weight:600}.control input[type=range]{width:100%;margin:0;accent-color:#206f5d;cursor:pointer}.range-note{color:#84958c;font-size:10.5px;line-height:1.6;margin-top:4px}.preset-box{border:1px solid #d6e9de;background:#f2faf4;border-radius:14px;padding:12px 13px;margin-top:12px}.preset-title{font-size:11px;font-weight:850;color:#41795e;margin-bottom:5px}.preset-item{font-size:11px;color:#577064;line-height:1.9}.preset-item b{color:#224e3c}.btn-stack{display:grid;gap:8px;margin-top:19px}.btn{border:0;border-radius:12px;padding:13px 12px;font-weight:850;display:flex;justify-content:center;align-items:center;gap:8px;transition:transform .16s,background .16s;min-height:43px}.btn:active{transform:scale(.98)}.btn-primary{background:#103d30;color:white}.btn-primary:hover{background:#205a46}.btn-subtle{background:#eef5ef;color:#19503e;border:1px solid #dfebe3}.btn-outline{background:white;color:#2d6354;border:1px solid #cdded3}.btn:disabled{opacity:.5;cursor:not-allowed}.row-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kicker{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:900;letter-spacing:.05em;color:#6c887c}.lab-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:17px;flex-wrap:wrap}.live-pill{border:1px solid #d5e6d9;background:#f2f9f2;border-radius:99px;font-size:11px;font-weight:850;padding:7px 11px;color:#4c7260}.live-pill .live-dot{display:inline-block;background:#9dacaa;border-radius:50%;width:7px;height:7px;margin-right:6px}.live-pill.active .live-dot{background:#45be7b;box-shadow:0 0 0 4px #45be7b25}.live-pill.active{color:#176d41}
+.experiment{background:linear-gradient(180deg,#f8fdfa 0%,#eaf3ef 100%);border:1px solid #deebe2;border-radius:18px;overflow:hidden}.cups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;min-height:340px}.cup-col{--tone:#fc655b;position:relative;text-align:center;border-right:1px solid #dce9e2;padding:20px 6px 16px;overflow:hidden}.cup-col:last-child{border-right:0}.cup-col.blue{--tone:#5480e9}.cup-col.green{--tone:#3bba7a}.cup-col.red{--tone:#ed6d55}.cup-heading{font-size:14px;font-weight:900;letter-spacing:-.3px}.cup-wave{color:#759188;font-size:11px;margin-top:1px;font-weight:650}.light{margin:12px auto 0;width:92px;height:46px;position:relative;display:grid;place-items:center}.lamp-shell{width:74px;height:20px;background:#eef4f2;box-shadow:0 2px 4px #11301e1a;border-radius:15px 15px 5px 5px;border:2px solid #cedcd3;position:relative;z-index:2}.lamp-shell:before{content:'';position:absolute;top:-8px;left:27px;height:9px;width:16px;background:#b0c1b6;border-radius:4px 4px 0 0}.lamp-core{position:absolute;top:11px;left:21px;width:50px;height:6px;border-radius:8px;background:var(--tone);box-shadow:0 0 8px 3px color-mix(in srgb,var(--tone) 45%,transparent)}.ray{position:absolute;top:27px;left:50%;transform:translateX(-50%);height:155px;width:150px;background:linear-gradient(180deg,color-mix(in srgb,var(--tone) 19%,transparent),transparent);clip-path:polygon(45% 0,55% 0,100% 100%,0 100%);pointer-events:none;opacity:.48;transition:opacity .4s}.ray.on{opacity:1}.beaker-wrap{height:226px;display:flex;align-items:flex-end;justify-content:center;position:relative}.beaker{width:174px;height:191px;border:3px solid #a5c7ba;border-top:0;border-radius:0 0 19px 19px;position:relative;background:#ffffff3b;box-shadow:inset 9px 0 13px #ffffff88,8px 8px 15px #0c40340b;overflow:hidden}.beaker:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#accabd;opacity:.9;z-index:3}.beaker .water{position:absolute;bottom:0;left:0;right:0;height:153px;background:linear-gradient(180deg,#a3e8d54d 0%,#69b2a638 100%);border-top:2px solid #82cabe;z-index:1}.scale-mark{position:absolute;right:9px;top:49px;width:10px;height:1px;background:#b2cfc4;z-index:4;box-shadow:0 24px #b2cfc4,0 48px #b2cfc4,0 72px #b2cfc4,0 96px #b2cfc4}.disk{position:absolute;width:17px;height:11px;border-radius:65% 35% 70% 30%;background:#5d9970;border:1px solid #327858;transform:rotate(-17deg);z-index:3;transition:bottom .14s linear, background .2s}.disk:before{content:'';position:absolute;top:4px;left:2px;width:12px;border-top:1px solid #e2efcb8a;transform:rotate(-15deg)}.beaker-caption{position:absolute;bottom:17px;right:13px;background:#ffffffaa;border:1px solid #ffffffbb;border-radius:10px;font-size:9px;padding:3px 5px;color:#668178;font-weight:750}.bench{height:9px;background:#c9d7cd;border-top:2px solid #a2bfb1;box-shadow:0 6px 0 #dce8de;margin:-1px 14px 0}.cup-total{display:flex;align-items:baseline;justify-content:center;gap:4px;margin-top:10px}.cup-total b{font-size:25px;line-height:1;font-weight:900;font-variant-numeric:tabular-nums}.cup-total span{color:#789085;font-size:11px}.cup-total .number{color:var(--tone)}.cup-sub{font-size:10px;color:#7a8f85;margin-top:4px}.tabline{padding:13px 15px;background:#fff;border-top:1px solid #e2ece4;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.seg{display:flex;background:#edf3ee;border-radius:9px;padding:3px;gap:2px}.seg button{border:0;background:transparent;color:#6d8276;font-size:11px;border-radius:7px;padding:6px 9px;font-weight:850}.seg button.selected{background:white;color:#164a3b;box-shadow:0 1px 5px #24553d18}.time-stamp{font-size:12px;color:#536f61;font-weight:800}.time-stamp strong{font-size:17px;color:#164a3b}.timeline{width:100%;accent-color:#257258;cursor:pointer}.timebar{display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding:0 1px;margin-top:14px}.progress-label{color:#7e9185;font-size:11px;font-weight:650}
+.subgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:19px}.subgrid .panel{min-width:0}.data-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}.legend{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.legend span{font-size:10px;font-weight:750;color:#687f73;display:inline-flex;align-items:center;gap:5px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}.chart-hint{font-size:10px;color:#85988c;margin-top:7px}.chart-container{position:relative;width:100%;height:235px}canvas{display:block;width:100%;height:100%}table{border-collapse:collapse;width:100%;font-size:12px;font-variant-numeric:tabular-nums}th,td{padding:10px 8px;text-align:center;border-bottom:1px solid #e9f0eb}th{background:#f5faf6;color:#6e8b79;font-size:11px;font-weight:850}td{font-weight:750;color:#386354}tr:last-child td{border-bottom:none}td:first-child,th:first-child{text-align:left}.cell-red{color:#cf675c}.cell-blue{color:#5679c0}.cell-green{color:#2a9869}.table-note{font-size:10px;color:#8b9b90;margin-top:12px}
+.insights{margin-top:19px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.summary-content p{font-size:12px;color:#547164;line-height:1.8}.summary-line{display:grid;grid-template-columns:112px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid #e7f0e9}.summary-line:last-child{border:0}.summary-line b{font-size:12px;color:#315c4c}.summary-line span{font-size:12px;color:#6c8076}.status-message{display:flex;gap:10px;border-radius:13px;padding:14px;background:#f0f8ef;color:#3b7358;font-size:11px;line-height:1.7;margin-top:16px}.model-eqn{font-family:'DM Sans',sans-serif;padding:13px;background:#f2f8f2;border-radius:11px;text-align:center;font-size:12px;color:#2a624e;font-weight:800;letter-spacing:-.1px;margin:13px 0 10px}.disclaimer{border:1px solid #e3e7d0;background:#fbfcf1;color:#62694c;padding:14px 17px;border-radius:13px;font-size:11px;line-height:1.75;margin-top:19px}.ref-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}.ref-links a{text-decoration:none;color:#32725a;font-size:11px;font-weight:750;border-bottom:1px solid #9cc6aa}.disclaimer strong{color:#455d36}.tiny-note{color:#899b90;font-size:10px;line-height:1.7;margin-top:8px}.footer{margin-top:18px;text-align:center;color:#9aaa9e;font-size:11px}
+
+/* Two-dependents readout and methods */
+.second-outcome{margin-top:19px}.metric-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:21px}.metric-chip{padding:5px 10px;border-radius:99px;background:#f1f7f3;color:#427761;font-size:10px;font-weight:850;white-space:nowrap}
+.t50-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(190px,1fr);gap:23px;align-items:center}.t50-bars{min-width:0}.t50-track-row{display:grid;grid-template-columns:91px minmax(30px,1fr) 69px;gap:9px;align-items:center;margin-bottom:15px}.t50-name{font-size:12px;font-weight:850;white-space:nowrap}.t50-name small{display:block;font-size:10px;font-weight:650;color:#8a9c90}.t50-track{height:16px;background:repeating-linear-gradient(90deg,#f3f7f4 0,#f3f7f4 calc(50% - 1px),#dceae1 calc(50% - 1px),#dceae1 50%);border-radius:6px;overflow:hidden}.t50-fill{height:100%;border-radius:6px;transition:width .22s ease}.red-fill{background:linear-gradient(90deg,#ffac9e,#ed6d55)}.blue-fill{background:linear-gradient(90deg,#a8beff,#5480e9)}.green-fill{background:linear-gradient(90deg,#9ce6c1,#3bba7a)}.t50-value{font-size:13px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}.t50-ticks{display:flex;justify-content:space-between;padding-left:100px;padding-right:70px;color:#829889;font-size:10px}.t50-explain{background:#f4faf5;border:1px solid #e0ebe2;padding:15px 17px;border-radius:14px;min-width:0}.t50-explain b{color:#376d55;font-size:12px}.t50-explain p{font-size:11px;color:#627969;line-height:1.8;margin:7px 0 0}.t50-explain .micro-note{font-size:10px;color:#829485}
+.method-list{padding:0;margin:16px 0 0;list-style:none;counter-reset:step}.method-list li{counter-increment:step;position:relative;margin:0 0 11px;padding:0 0 11px 32px;border-bottom:1px solid #edf3ef;color:#5b7567;font-size:11.5px;line-height:1.7}.method-list li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}.method-list li:before{content:counter(step);position:absolute;left:0;top:1px;width:23px;height:23px;display:grid;place-items:center;color:#2b7658;background:#e8f5e9;border-radius:50%;font-size:11px;font-weight:850}.method-tip{padding:12px 13px;color:#3e6953;font-size:11px;line-height:1.7;background:#f0f8ef;border-radius:12px;margin:15px 0 0}
+@media(max-width:1100px){.t50-grid{grid-template-columns:1fr}}
+@media(max-width:510px){.t50-track-row{grid-template-columns:67px minmax(24px,1fr) 59px;gap:5px}.t50-ticks{padding-left:72px;padding-right:60px}.t50-value{font-size:11px}.t50-name{font-size:11px}.metric-head{flex-wrap:wrap}}
+@media(max-width:1120px){.columns{grid-template-columns:285px minmax(0,1fr)}.subgrid,.insights{grid-template-columns:1fr}.cups{min-height:340px}.beaker{width:150px}}@media(max-width:800px){.layout{padding:0 16px}header .layout{height:58px}.hero{padding:36px 0}.columns{grid-template-columns:1fr}.control{position:static}.controls-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 20px}.control-group{margin:14px 0}.panel-pad{padding:18px}.cups{min-height:330px}}@media(max-width:510px){body{font-size:12px}.top-tag{display:none}.hero h1{font-size:29px}.hero p{font-size:12px}.controls-grid{grid-template-columns:1fr}.cups{min-height:290px}.cup-col{padding:15px 4px 14px}.cup-heading{font-size:12px}.cup-wave{font-size:10px}.light{width:75px;height:37px;margin-top:8px}.lamp-shell{width:58px;height:17px}.lamp-shell:before{left:20px}.lamp-core{left:15px;top:10px;width:45px}.beaker-wrap{height:191px}.beaker{width:96px;height:157px;border-width:2px;border-radius:0 0 13px 13px}.beaker .water{height:128px}.disk{width:12px;height:8px}.scale-mark{display:none}.cup-total b{font-size:21px}.cup-sub{font-size:9px}.tabline{padding:11px}.panel-title{font-size:15px}.hero-info{gap:6px}.info-tag{font-size:10px;padding:6px 9px}.summary-line{grid-template-columns:91px 1fr}.chart-container{height:210px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header><div class="layout"><div class="brand"><span class="brand-icon"><svg aria-hidden="true" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-11 0-15 5-15 12a4 4 0 0 0 4 4c7 0 12-4 11-16Z"/><path d="M5 20c2-5 6-9 11-12"/></svg></span>생명과학 실험실 <span style="font-size:12px;color:#93b9a9;font-weight:600">/ 광합성 탐구</span></div><div class="top-tag">PHOTOSYNTHESIS LAB · 01</div></div></header>
+<section class="hero"><div class="layout hero-content"><span class="eyebrow">Interactive Biology Experiment</span><h1>빛의 파장이 바뀌면,<br><em>광합성 속도는 어떻게 달라질까요?</em></h1><p>시금치 잎 디스크에 청색광·녹색광·적색광을 비추고, 산소 축적에 따른 부상 과정을 직접 관찰해 보세요. 부상 디스크 개수와 5개 부상까지 걸린 시간(t₅₀)을 함께 측정하고 비교해 보세요.</p><div class="hero-info"><span class="info-tag"><span class="spark" style="background:#5480e9"></span><b>청색광</b> · 450 nm</span><span class="info-tag"><span class="spark" style="background:#3bba7a"></span><b>녹색광</b> · 530 nm</span><span class="info-tag"><span class="spark" style="background:#ed6d55"></span><b>적색광</b> · 660 nm</span><span class="info-tag">잎 디스크 부상법 · 10개 × 2회</span><span class="info-tag"><b>종속 변인 2개</b> · 부상 개수 + t₅₀</span></div></div></section>
+<main class="layout content"><div class="columns">
+<aside class="panel control"><div class="panel-pad"><h2 class="panel-title"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 17h16M9 4v6M15 14v6"/></svg>실험 조건 설정</h2><p class="subtitle">빛의 파장 외 조건을 조절해 결과를 비교하세요.</p>
+<div class="controls-grid"><div class="control-group"><div class="range-header"><label for="ppfd">광량 (PPFD, 10 cm 기준)</label><output id="ppfdOut">150</output></div><input id="ppfd" type="range" min="0" max="1000" value="150" step="10"><div class="range-note">단위: μmol·m⁻²·s⁻¹ / 동일 광자 수 비교</div></div>
+<div class="control-group"><div class="range-header"><label for="temp">용액 온도</label><output id="tempOut">25 °C</output></div><input id="temp" type="range" min="5" max="45" value="25" step="1"><div class="range-note">효소 반응과 광합성 속도에 영향</div></div>
+<div class="control-group"><div class="range-header"><label for="bicarb">탄산수소나트륨 농도</label><output id="bicarbOut">0.2 %</output></div><input id="bicarb" type="range" min="0" max="0.5" value="0.2" step="0.05"><div class="range-note">물속 무기탄소 공급량의 간접 변수</div></div>
+<div class="control-group"><div class="range-header"><label for="distance">광원과의 거리</label><output id="distanceOut">10 cm</output></div><input id="distance" type="range" min="5" max="25" value="10" step="1"><div class="range-note">거리 변화 시 광량 감소를 근사 계산</div></div></div>
+<div class="preset-box"><div class="preset-title">현재 통제·조작 조건</div><div class="preset-item">디스크 <b>각 10개</b> · 용액 <b>각 50 mL</b> · 관찰 <b>10분</b></div><div class="preset-item">잎 크기 <b>동일(약 6 mm)</b> · 반복 <b>2회</b> (총 60개 사용)</div><div class="preset-item">잎에 도달하는 추정 PPFD <b id="effectivePPFD">150</b> μmol·m⁻²·s⁻¹</div></div>
+<div class="btn-stack"><button type="button" class="btn btn-primary" id="startBtn"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span id="startText">실험 시작</span></button><div class="row-buttons"><button type="button" class="btn btn-subtle" id="endBtn">10분 결과 보기</button><button type="button" class="btn btn-outline" id="resetBtn">기본값 초기화</button></div></div><p class="tiny-note">시간 진행은 60배속입니다. 조건을 변경하면 모의 결과가 새로 계산되며, 시간 막대를 움직여 과정도 확인할 수 있습니다.</p>
+</div></aside>
+<section class="maincol"><div class="panel"><div class="panel-pad"><div class="lab-head"><div><div class="kicker">VIRTUAL EXPERIMENT</div><h2 class="panel-title" style="margin-top:4px">시금치 잎 디스크 부상 실험</h2></div><div class="live-pill" id="status"><span class="live-dot"></span><span id="statusText">실험 대기</span></div></div>
+<div class="experiment"><div class="cups" id="cups"><div class="cup-col blue" data-color="blue"><div class="cup-heading">청색광</div><div class="cup-wave">450 nm</div><div class="light"><div class="lamp-shell"></div><div class="lamp-core"></div><div class="ray"></div></div><div class="beaker-wrap"><div class="beaker"><div class="water"></div><div class="scale-mark"></div><div class="disks"></div><div class="beaker-caption">NaHCO₃ 용액</div></div></div><div class="bench"></div><div class="cup-total"><b class="number" id="blueCount">0</b><span>/ 10 개 부상</span></div><div class="cup-sub" id="blueET">5번째 부상 시점: —</div></div>
+<div class="cup-col green" data-color="green"><div class="cup-heading">녹색광</div><div class="cup-wave">530 nm</div><div class="light"><div class="lamp-shell"></div><div class="lamp-core"></div><div class="ray"></div></div><div class="beaker-wrap"><div class="beaker"><div class="water"></div><div class="scale-mark"></div><div class="disks"></div><div class="beaker-caption">NaHCO₃ 용액</div></div></div><div class="bench"></div><div class="cup-total"><b class="number" id="greenCount">0</b><span>/ 10 개 부상</span></div><div class="cup-sub" id="greenET">5번째 부상 시점: —</div></div>
+<div class="cup-col red" data-color="red"><div class="cup-heading">적색광</div><div class="cup-wave">660 nm</div><div class="light"><div class="lamp-shell"></div><div class="lamp-core"></div><div class="ray"></div></div><div class="beaker-wrap"><div class="beaker"><div class="water"></div><div class="scale-mark"></div><div class="disks"></div><div class="beaker-caption">NaHCO₃ 용액</div></div></div><div class="bench"></div><div class="cup-total"><b class="number" id="redCount">0</b><span>/ 10 개 부상</span></div><div class="cup-sub" id="redET">5번째 부상 시점: —</div></div></div>
+<div class="tabline"><div><span class="kicker" style="margin-right:8px">VISUALIZED REPEAT</span><div class="seg" style="display:inline-flex;vertical-align:middle"><button type="button" data-rep="0" class="selected">1회차</button><button type="button" data-rep="1">2회차</button></div></div><div class="time-stamp">실험 경과 <strong id="clock">00:00</strong> / 10:00</div></div></div><div class="timebar"><input class="timeline" type="range" id="timeline" aria-label="실험 경과 시간" min="0" max="10" step="0.05" value="0"><span class="progress-label">슬라이드로 시간 이동</span></div></div></div>
+<div class="subgrid"><div class="panel panel-pad"><div class="data-head"><h2 class="panel-title">① 시간별 부상 디스크 개수</h2><div class="legend"><span><i style="background:#ed6d55"></i>적색광</span><span><i style="background:#5480e9"></i>청색광</span><span><i style="background:#3bba7a"></i>녹색광</span></div></div><div class="chart-container"><canvas id="chart" role="img" aria-label="시간에 따른 파장별 평균 부상 디스크 개수 그래프"></canvas></div><div class="chart-hint">세로축: 부상 디스크 수(개) · 가로축: 시간(분) · 실선: 진행된 모의 실험 / 점선: 이후 예측</div></div>
+<div class="panel panel-pad"><div class="data-head"><h2 class="panel-title">① 부상 개수 기록표</h2><button class="btn btn-outline" type="button" id="csvBtn" style="font-size:11px;padding:7px 9px;min-height:32px">CSV 저장</button></div><table aria-label="파장별 모의 실험 평균 디스크 부상 개수"><thead><tr><th>시간</th><th>청색광</th><th>녹색광</th><th>적색광</th></tr></thead><tbody id="tableBody"></tbody></table><div class="table-note">단위: 개 · 각 조건 10개 × 2회 평균 · 0.5개 단위 가능</div></div></div>
+<section class="panel panel-pad second-outcome" aria-labelledby="timeOutcomeTitle">
+<div class="metric-head"><div><span class="kicker">SECOND DEPENDENT VARIABLE</span><h2 id="timeOutcomeTitle" class="panel-title" style="margin-top:5px">② 디스크 5개가 떠오르는 시간 (t₅₀)</h2><p class="subtitle">2회 평균 부상 개수가 5개에 도달하는 시간을 추정합니다. <b>짧을수록 빠른 반응</b>입니다.</p></div><span class="metric-chip">단위: 분</span></div>
+<div class="t50-grid"><div class="t50-bars" id="t50Bars" role="img" aria-label="빛의 파장별 디스크 5개 부상에 걸린 추정 시간 막대 그래프">
+<div class="t50-track-row" data-t50="red"><div class="t50-name">적색광 <small>660 nm</small></div><div class="t50-track"><div class="t50-fill red-fill" id="redBar" style="width:55.6%"></div></div><b class="t50-value" id="redValue">5.6분</b></div>
+<div class="t50-track-row" data-t50="blue"><div class="t50-name">청색광 <small>450 nm</small></div><div class="t50-track"><div class="t50-fill blue-fill" id="blueBar" style="width:66.7%"></div></div><b class="t50-value" id="blueValue">6.7분</b></div>
+<div class="t50-track-row" data-t50="green"><div class="t50-name">녹색광 <small>530 nm</small></div><div class="t50-track"><div class="t50-fill green-fill" id="greenBar" style="width:88%"></div></div><b class="t50-value" id="greenValue">8.8분</b></div>
+<div class="t50-ticks"><span>0분</span><span>5분</span><span>10분</span></div></div>
+<div class="t50-explain"><b>t₅₀ 측정 기준</b><p>시간별 <b>2회 평균 부상 개수</b>를 기록한 뒤, 요약표의 <b>2분 간격 지점 사이를 직선으로 연결</b>해 5개가 되는 시점을 구합니다.</p><p class="micro-note">※ 개별 회차의 5번째 디스크 부상 시각과는 계산 기준이 달라 수치가 다를 수 있습니다.</p></div></div></section>
+<div class="insights"><div class="panel panel-pad"><h2 class="panel-title">종속 변인 종합 분석</h2><div class="summary-content"><div class="summary-line"><b>10분 후 부상 수</b><span id="s10">적 10개 · 청 9개 · 녹 6.5개</span></div><div class="summary-line"><b>t₅₀ 추정</b><span id="s50">적 5.6분 · 청 6.7분 · 녹 8.8분</span></div><div class="summary-line"><b>결과 해석</b><span id="sRank">기본 조건에서는 적색광 &gt; 청색광 &gt; 녹색광</span></div><div class="summary-line"><b>가설과의 관계</b><span id="sHyp">기본 가상 시나리오에서 가설과 일치</span></div></div><div class="status-message"><span style="font-size:18px">↗</span><div>부상 디스크 수는 <b>산소 발생의 간접 지표</b>입니다. 산소 생산량(mL)이나 광합성 양자 효율 자체를 직접 측정한 값은 아닙니다.</div></div></div>
+<div class="panel panel-pad"><h2 class="panel-title">실험 과정</h2><p class="subtitle">1차 사전 계획서와 동일한 6단계 절차</p><ol class="method-list">
+<li>시금치 잎을 펀칭기로 같은 크기의 <b>디스크 30개</b>로 만듭니다.</li>
+<li>주사기에 디스크와 탄산수소나트륨 수용액을 넣고 <b>감압하여 가라앉힙니다.</b></li>
+<li>비커 3개에 같은 농도·양의 수용액을 넣고 디스크를 <b>각 10개</b>씩 배분합니다.</li>
+<li>비커에서 <b>10 cm</b> 떨어진 LED(청·녹·적)를 설치하고 광양자 센서로 <b>PPFD</b>를 같게 맞춥니다.</li>
+<li><b>25℃</b>를 유지하며 <b>10분 동안 1분 간격</b>으로 부상 디스크 개수와 <b>5개 부상 시점</b>을 기록합니다.</li>
+<li>새 디스크를 사용해 한 번 더 반복하고 <b>2회 평균값</b>을 표·그래프로 비교합니다.</li>
+</ol><p class="method-tip">이 페이지는 위 절차를 가상으로 구현합니다. 첫 번째 종속 변인은 <b>부상 개수</b>, 두 번째는 <b>t₅₀ 추정 시간</b>입니다.</p></div></div>
+<div class="disclaimer"><strong>실험 결과의 성격</strong> — 이 웹사이트는 실제 실험이나 검증된 정량 생리 모델이 아닌 <b>교육용 가상 시뮬레이션</b>입니다. 기본 조건은 앞서 작성한 가상 보고서 결과를 재현하도록 설정되었습니다. 실제 시금치의 파장별 광합성 속도는 품종, 잎 두께, 빛의 세기와 광원 스펙트럼에 따라 달라질 수 있습니다. 특히 녹색광도 광합성에 효과적으로 이용됩니다.<div class="ref-links"><a href="https://mcb.arizona.edu/outreach/resources/science-at-home/photosynthesis" target="_blank" rel="noreferrer">University of Arizona · 잎 디스크 실험</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7977723/" target="_blank" rel="noreferrer">Liu &amp; van Iersel (2021) · 파장·광량 연구</a></div></div>
+<div class="footer">생명과학 실험 · 광합성 속도에 영향을 주는 요인 · 시뮬레이션 예시</div>
+</section></div></main>
+<script>
+(() => {
+'use strict';
+const BASE={
+ red:[[3.3,4.6,4.9,5.2,5.5,5.9,6.7,7.6,8.5,9.4],[3.2,3.8,4.5,4.8,5.2,5.7,6.3,7.2,7.8,9.1]],
+ blue:[[3.6,4.6,5.3,5.9,6.4,7.0,7.7,8.5,9.5,10.8],[3.8,4.3,5.1,5.6,6.2,6.8,7.5,8.4,9.2,10.7]],
+ green:[[5.5,6.7,7.4,7.9,8.8,9.5,10.7,11.6,12.8,13.7],[5.3,5.9,6.5,7.6,8.2,9.0,9.8,10.5,11.8,13.2]]
+};
+const COLORS={red:'#ed6d55',blue:'#5480e9',green:'#3bba7a'};
+const KOREAN={red:'적색광',blue:'청색광',green:'녹색광'};
+const $=id=>document.getElementById(id);
+const state={time:0,running:false,rep:0,last:0,params:{ppfd:150,temp:25,bicarb:.2,distance:10},model:null};
+const times=[0,2,4,6,8,10];
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+const fmt=(n,dec=1)=>Number.isFinite(n)?Number(n.toFixed(dec)).toString():'—';
+function lightSpectrum(color,p){
+ // Illustrative response. Green rises relative to red as high light better penetrates the leaf.
+ const x=clamp((p-150)/750,0,1);const smooth=x*x*(3-2*x);
+ return ({red:1,blue:.84,green:.63}[color]) + ({red:-.10,blue:-.07,green:.29}[color])*smooth;
+}
+function effectivePPFD(){const v=state.params;return v.ppfd*Math.pow(10/v.distance,2);}
+function effect(color){
+ const {temp,bicarb}=state.params, p=effectivePPFD();
+ const photo=(p/(p+155))/(150/(150+155));
+ const spectral=lightSpectrum(color,p)/lightSpectrum(color,150);
+ const temperature=Math.exp(-.5*Math.pow((temp-27)/13,2))/Math.exp(-.5*Math.pow((25-27)/13,2));
+ const c=(bicarb+.015)/(bicarb+.095),ref=(.2+.015)/(.2+.095);
+ const gross=photo*spectral*temperature*(c/ref);
+ // respiration is treated as small light-independent competing oxygen consumption.
+ return Math.max(0,(gross-.11)/.89);
+}
+function computeModel(){
+ const lag=1.2, result={};
+ for(const color of ['red','blue','green']){
+  const rate=effect(color);
+  result[color]=BASE[color].map(rep=>rep.map(t=>rate<=0?Infinity:lag+(t-lag)/rate));
+ }
+ return result;
+}
+function numFloated(color,rep,t){return state.model[color][rep].reduce((sum,threshold)=>sum+(t+1e-8>=threshold?1:0),0);}
+function avg(color,t){return (numFloated(color,0,t)+numFloated(color,1,t))/2;}
+// In each replicate, the fifth disk is the discrete 50% floating time.
+function fifthDiskTime(color,rep){return state.model[color][rep][4];}
+// Report-aligned t50: interpolate crossing of 5 in the two-replicate MEAN count
+// at exactly the displayed 2-minute table timepoints; do not average the separate 5th thresholds.
+function etAvg(color){
+ for(let i=1;i<times.length;i++){
+  const t0=times[i-1], t1=times[i], n0=avg(color,t0), n1=avg(color,t1);
+  if(n0>=5)return t0;
+  if(n1>=5&&n1>n0)return t0+(5-n0)*(t1-t0)/(n1-n0);
+ }
+ return Infinity; // not observed within the 10-minute window
+}
+function valueFmt(v){return Number.isFinite(v)?fmt(v,1)+'분':'10분 내 미도달';}
+function formatRepTime(v){return Number.isFinite(v)&&v<=10?fmt(v,2)+'분':'10분 내 미도달';}
+function renderDisks(color){const holder=document.querySelector(`.cup-col.${color} .disks`);holder.innerHTML='';for(let i=0;i<10;i++){const el=document.createElement('div');el.className='disk';el.dataset.disk=i;holder.appendChild(el);}}
+function moveDisks(color){
+ const beaker=document.querySelector(`.cup-col.${color} .beaker`),beakerWidth=beaker.clientWidth;
+ const disks=beaker.querySelectorAll('.disk');const first=state.model[color][state.rep];
+ disks.forEach((disk,i)=>{
+  const t=first[i];const row=Math.floor(i/5), col=i%5;
+  const spread=(beakerWidth-35)/5;
+  const x=11+col*spread+(row%2)*2+Math.sin(i*7.2)*2;
+  const phase=clamp((state.time-(t-1.25))/1.25,0,1);
+  const bottom=Number.isFinite(t)?(12+row*14 + phase*(111-row*14)):(12+row*14);
+  disk.style.left=x+'px';disk.style.bottom=bottom+'px';disk.style.transform=`rotate(${i*23%40-20}deg)`;
+  disk.style.background=phase===1?'#66aa73':'#518e69';
+  disk.title=`${KOREAN[color]} 디스크 ${i+1}: `+(Number.isFinite(t)?`예상 부상 ${fmt(t,2)}분`:'부상하지 않음');
+ });
+}
+function updateTimeDisplay(){
+ const s=Math.round(state.time*60);$('clock').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');$('timeline').value=state.time;
+ const text=state.running?'실험 진행 중':state.time>=10?'실험 완료':state.time>0?'일시정지':'실험 대기';
+ $('statusText').textContent=text;$('status').classList.toggle('active',state.running);
+ $('startText').textContent=state.running?'일시정지':state.time>=10?'다시 실행':state.time>0?'계속 진행':'실험 시작';
+ document.querySelectorAll('.ray').forEach(ray=>ray.classList.toggle('on',state.time>0));
+ for(const color of ['red','blue','green']){
+  $(color+'Count').textContent=numFloated(color,state.rep,state.time);
+  $(color+'ET').textContent='5번째 부상: '+formatRepTime(fifthDiskTime(color,state.rep));moveDisks(color);
+ }
+ drawChart();
+}
+function updateTable(){
+ const tb=$('tableBody');tb.innerHTML='';
+ for(const t of times){const row=document.createElement('tr');row.innerHTML=`<td>${t}분</td><td class="cell-blue">${fmt(avg('blue',t))}</td><td class="cell-green">${fmt(avg('green',t))}</td><td class="cell-red">${fmt(avg('red',t))}</td>`;tb.appendChild(row);}
+ const count10=Object.fromEntries(['red','blue','green'].map(color=>[color,avg(color,10)]));
+ $('s10').textContent=`적 ${fmt(count10.red)}개 · 청 ${fmt(count10.blue)}개 · 녹 ${fmt(count10.green)}개`;
+ $('s50').textContent=`적 ${valueFmt(etAvg('red'))} · 청 ${valueFmt(etAvg('blue'))} · 녹 ${valueFmt(etAvg('green'))}`;
+ for(const color of ['red','blue','green']){
+  const v=etAvg(color),isFiniteT=Number.isFinite(v);
+  $(color+'Value').textContent=valueFmt(v);
+  $(color+'Bar').style.width=(isFiniteT?clamp(v*10,0,100):100)+'%';
+  $(color+'Bar').style.opacity=isFiniteT?'1':'.25';
+ }
+ $('t50Bars').setAttribute('aria-label',`t50 추정시간: 적색광 ${valueFmt(etAvg('red'))}, 청색광 ${valueFmt(etAvg('blue'))}, 녹색광 ${valueFmt(etAvg('green'))}`);
+ const ranks=['red','blue','green'].sort((a,b)=>etAvg(a)-etAvg(b));
+ const rankText=ranks.map(c=>KOREAN[c]).join(' > ');
+ $('sRank').textContent=Number.isFinite(etAvg(ranks[0]))?`t₅₀이 짧은 순서: ${rankText}`:'10분 내 t₅₀ 미도달';
+ $('sHyp').textContent=(Number.isFinite(etAvg('red'))&&Number.isFinite(etAvg('blue'))&&etAvg('red')<etAvg('green')&&etAvg('blue')<etAvg('green'))?'모의실험 결과가 가설과 일치':'수치 또는 관찰 시간만으로 단정하기 어려움';
+ $('effectivePPFD').textContent=fmt(effectivePPFD(),1);
+}
+function chartSetup(){
+ const canvas=$('chart'),rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;
+ canvas.width=Math.max(300,Math.round(rect.width*ratio));canvas.height=Math.round(rect.height*ratio);
+ const ctx=canvas.getContext('2d');ctx.setTransform(ratio,0,0,ratio,0,0);return{ctx,w:rect.width,h:rect.height};
+}
+function drawChart(){
+ const {ctx,w,h}=chartSetup();const m={l:36,r:12,t:15,b:30};const cw=w-m.l-m.r,ch=h-m.t-m.b;
+ ctx.clearRect(0,0,w,h);ctx.font='11px DM Sans, sans-serif';ctx.textBaseline='middle';ctx.strokeStyle='#e9f1eb';ctx.fillStyle='#8ca296';ctx.lineWidth=1;
+ for(let k=0;k<=5;k++){
+  const y=m.t+ch*(1-k/5);ctx.beginPath();ctx.moveTo(m.l,y);ctx.lineTo(m.l+cw,y);ctx.stroke();ctx.textAlign='right';ctx.fillText(k*2,m.l-9,y);
+ }
+ for(let k=0;k<=5;k++){
+  const x=m.l+cw*k/5;ctx.textAlign='center';ctx.fillText(k*2,x,h-14);
+ }
+ ctx.save();ctx.beginPath();ctx.rect(m.l,m.t,cw,ch);ctx.clip();
+ const xp=t=>m.l+cw*t/10,yp=n=>m.t+ch*(1-n/10);
+ for(const color of ['red','blue','green']){
+  ctx.strokeStyle=COLORS[color];ctx.globalAlpha=.22;ctx.lineWidth=2;ctx.setLineDash([5,5]);ctx.beginPath();
+  for(let i=0;i<=100;i++){const t=i*.1,x=xp(t),y=yp(avg(color,t));if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;
+  ctx.strokeStyle=COLORS[color];ctx.lineWidth=2.6;ctx.lineJoin='round';ctx.beginPath();const N=Math.round(state.time*10);
+  for(let i=0;i<=N;i++){const t=i*.1,x=xp(t),y=yp(avg(color,t));if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.lineTo(xp(state.time),yp(avg(color,state.time)));ctx.stroke();
+  if(state.time>0){ctx.beginPath();ctx.arc(xp(state.time),yp(avg(color,state.time)),4.2,0,Math.PI*2);ctx.fillStyle=COLORS[color];ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();}
+ }
+ ctx.restore();
+}
+function recalculate(resetTime=false){if(resetTime){state.time=0;state.running=false;}state.model=computeModel();updateTable();updateTimeDisplay();}
+function loadParams(){for(const key of ['ppfd','temp','bicarb','distance'])state.params[key]=+$(''+key).value;for(const key of ['ppfd','temp','bicarb','distance'])$(''+key+'Out').textContent=fmt(state.params[key],key==='bicarb'?2:0)+(key==='temp'?' °C':key==='bicarb'?' %':key==='distance'?' cm':'');recalculate(true);}
+['ppfd','temp','bicarb','distance'].forEach(key=>$(key).addEventListener('input',loadParams));
+$('startBtn').addEventListener('click',()=>{if(state.running){state.running=false;}else{if(state.time>=10)state.time=0;state.running=true;state.last=0;requestAnimationFrame(tick);}updateTimeDisplay();});
+$('endBtn').addEventListener('click',()=>{state.running=false;state.time=10;updateTimeDisplay();});
+$('resetBtn').addEventListener('click',()=>{const defaults={ppfd:150,temp:25,bicarb:.2,distance:10};for(const key of Object.keys(defaults))$(key).value=defaults[key];loadParams();state.rep=0;document.querySelectorAll('[data-rep]').forEach(btn=>btn.classList.toggle('selected',+btn.dataset.rep===0));});
+$('timeline').addEventListener('input',e=>{state.running=false;state.time=+e.target.value;updateTimeDisplay();});
+document.querySelectorAll('[data-rep]').forEach(btn=>btn.addEventListener('click',()=>{state.rep=+btn.dataset.rep;document.querySelectorAll('[data-rep]').forEach(x=>x.classList.toggle('selected',x===btn));updateTimeDisplay();}));
+function tick(stamp){if(!state.running)return;if(!state.last)state.last=stamp;const dt=Math.min((stamp-state.last)/1000,.2);state.last=stamp;state.time=clamp(state.time+dt,0,10);if(state.time>=10){state.time=10;state.running=false;}updateTimeDisplay();if(state.running)requestAnimationFrame(tick);else state.last=0;}
+$('csvBtn').addEventListener('click',()=>{const rows=[['시간(분)','청색광(개)','녹색광(개)','적색광(개)'],...times.map(t=>[t,avg('blue',t),avg('green',t),avg('red',t)])];const extra=`\n\n두 번째 종속 변인,청색광(t50 분),녹색광(t50 분),적색광(t50 분)\nt50 보간 추정,${Number.isFinite(etAvg('blue'))?fmt(etAvg('blue'),1):'10분 내 미도달'},${Number.isFinite(etAvg('green'))?fmt(etAvg('green'),1):'10분 내 미도달'},${Number.isFinite(etAvg('red'))?fmt(etAvg('red'),1):'10분 내 미도달'}\n\n조건,PPFD(10cm),${state.params.ppfd},온도(C),${state.params.temp},탄산수소나트륨(%),${state.params.bicarb},거리(cm),${state.params.distance}\nt50 계산법,2분 간격 2회 평균 부상 개수의 선형보간으로 5개 부상 시점 추정\n참고,본 데이터는 교육용 가상 시뮬레이션 결과입니다. 실제 실험 측정값이 아닙니다.`;const csv='\ufeff'+rows.map(row=>row.join(',')).join('\n')+extra;const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));const link=document.createElement('a');link.href=url;link.download='광합성_파장별_모의실험_결과.csv';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),500);});
+for(const color of ['red','green','blue'])renderDisks(color);
+window.addEventListener('resize',updateTimeDisplay);
+loadParams();
+})();
+</script>
+</body>
+</html>
