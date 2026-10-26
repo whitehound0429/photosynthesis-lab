@@ -110,13 +110,13 @@ function moveDisks(color){
   const bottom=Number.isFinite(t)?(12+row*14 + phase*(111-row*14)):(12+row*14);
   disk.style.left=x+'px';disk.style.bottom=bottom+'px';disk.style.transform=`rotate(${i*23%40-20}deg)`;
   disk.style.background=phase===1?'#66aa73':'#518e69';
-  disk.title=`${KOREAN[color]} 디스크 ${i+1}: `+(Number.isFinite(t)?`예상 부상 ${fmt(t,2)}분`:'부상하지 않음');
+  disk.title=`${KOREAN[color]} 디스크 ${i+1}: `+(t<=state.time?`모의 부상 ${fmt(t,2)}분`:'아직 미부상');
  });
 }
 function updateTimeDisplay(){
  const s=Math.round(state.time*60);$('clock').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');$('timeline').value=state.time;
  const text=state.running?'실험 진행 중':state.time>=10?'실험 완료':state.time>0?'일시정지':'실험 대기';
- $('startBtn').disabled=state.running; $('statusText').textContent=text;$('status').classList.toggle('active',state.running);
+ $('startBtn').disabled=state.running; $('csvBtn').disabled=state.time<10; $('statusText').textContent=text;$('status').classList.toggle('active',state.running);
  $('startText').textContent=state.running?'실험 진행 중':state.time>=10?'새 실험 시작':'실험 시작';
  document.querySelectorAll('.ray').forEach(ray=>ray.classList.toggle('on',state.time>0));
  for(const color of ['red','blue','green']){
