@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0c211f">
 <meta name="description" content="시금치 잎 디스크의 부상으로 빛의 파장에 따른 광합성 반응을 비교하는 과학적 교육용 시뮬레이션">
-<title>광합성 파장 탐구 실험실 v4 | 단일 실험</title>
+<title>광합성 파장 탐구 실험실 v5 | 단일 실험</title>
 <style>
 
 :root{color-scheme:light;--ink:#12342e;--deep:#0c2421;--muted:#62756e;--line:#dfebe5;--paper:#f3f8f4;--white:#fff;--green:#247d68;--red:#f06458;--blue:#5885ec;--lime:#cfff83;--round:22px}
@@ -30,15 +30,15 @@ header{background:var(--deep);color:#f7fff7;border-bottom:1px solid #25453d}head
 </style>
 </head>
 <body>
-<header><div class="layout"><div class="brand"><span class="brand-icon"><svg aria-hidden="true" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-11 0-15 5-15 12a4 4 0 0 0 4 4c7 0 12-4 11-16Z"/><path d="M5 20c2-5 6-9 11-12"/></svg></span>생명과학 실험실 <span style="font-size:12px;color:#93b9a9;font-weight:600">/ 광합성 탐구</span></div><div class="top-tag">PHOTOSYNTHESIS LAB · V4</div></div></header>
+<header><div class="layout"><div class="brand"><span class="brand-icon"><svg aria-hidden="true" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-11 0-15 5-15 12a4 4 0 0 0 4 4c7 0 12-4 11-16Z"/><path d="M5 20c2-5 6-9 11-12"/></svg></span>생명과학 실험실 <span style="font-size:12px;color:#93b9a9;font-weight:600">/ 광합성 탐구</span></div><div class="top-tag">PHOTOSYNTHESIS LAB · V5</div></div></header>
 <section class="hero"><div class="layout hero-content"><span class="eyebrow">Interactive Biology Experiment</span><h1>빛의 파장이 바뀌면,<br><em>광합성 속도는 어떻게 달라질까요?</em></h1><p>시금치 잎 디스크에 청색광·녹색광·적색광을 비추고, 산소 축적에 따른 부상 과정을 직접 관찰해 보세요. 부상 디스크 개수와 5개 부상까지 걸린 시간(t₅₀)을 함께 측정하고 비교해 보세요.</p><div class="hero-info"><span class="info-tag"><span class="spark" style="background:#5480e9"></span><b>청색광</b> · 450 nm</span><span class="info-tag"><span class="spark" style="background:#3bba7a"></span><b>녹색광</b> · 530 nm</span><span class="info-tag"><span class="spark" style="background:#ed6d55"></span><b>적색광</b> · 660 nm</span><span class="info-tag">잎 디스크 부상법 · 10개 · 단일 실행</span><span class="info-tag"><b>종속 변인 2개</b> · 부상 개수 + t₅₀</span></div></div></section>
 <main class="layout content"><div class="columns">
-<aside class="panel control"><div class="panel-pad"><h2 class="panel-title"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 17h16M9 4v6M15 14v6"/></svg>실험 조건 설정</h2><p class="subtitle">1차 보고서의 통제 조건입니다. 조건별 보정 자료가 없어 이번 버전에서는 고정합니다.</p>
-<div class="controls-grid"><div class="control-group"><div class="range-header"><label for="ppfd">계획 광량 (PPFD)</label><output id="ppfdOut">150</output></div><input disabled id="ppfd" type="range" min="0" max="1000" value="150" step="10"><div class="range-note">단위: μmol·m⁻²·s⁻¹ / 동일 광자 수 비교</div></div>
+<aside class="panel control"><div class="panel-pad"><h2 class="panel-title"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 17h16M9 4v6M15 14v6"/></svg>실험 조건 설정</h2><p class="subtitle">파장별 반응을 비교하기 위해 광량·온도·용액 농도·거리를 일정하게 유지합니다.</p>
+<div class="controls-grid"><div class="control-group"><div class="range-header"><label for="ppfd">광량 (PPFD)</label><output id="ppfdOut">150</output></div><input disabled id="ppfd" type="range" min="0" max="1000" value="150" step="10"><div class="range-note">단위: μmol·m⁻²·s⁻¹ / 동일 광자 수 비교</div></div>
 <div class="control-group"><div class="range-header"><label for="temp">용액 온도</label><output id="tempOut">25 °C</output></div><input disabled id="temp" type="range" min="5" max="45" value="25" step="1"><div class="range-note">효소 반응과 광합성 속도에 영향</div></div>
 <div class="control-group"><div class="range-header"><label for="bicarb">탄산수소나트륨 농도</label><output id="bicarbOut">0.2 %</output></div><input disabled id="bicarb" type="range" min="0" max="0.5" value="0.2" step="0.05"><div class="range-note">물속 무기탄소 공급량의 간접 변수</div></div>
 <div class="control-group"><div class="range-header"><label for="distance">광원과의 거리</label><output id="distanceOut">10 cm</output></div><input disabled id="distance" type="range" min="5" max="25" value="10" step="1"><div class="range-note">거리와 별도로 잎 위치의 PPFD를 맞추는 계획</div></div></div>
-<div class="preset-box"><div class="preset-title">현재 통제·조작 조건</div><div class="preset-item">디스크 <b>각 10개</b> · 용액 <b>각 50 mL</b> · 관찰 <b>10분</b></div><div class="preset-item">잎 크기 <b>동일(약 6 mm)</b> · 한 번에 <b>1회</b> (총 30개 사용)</div><div class="preset-item">계획상 동일 PPFD <b id="effectivePPFD">150</b> μmol·m⁻²·s⁻¹</div></div>
+<div class="preset-box"><div class="preset-title">현재 통제·조작 조건</div><div class="preset-item">디스크 <b>각 10개</b> · 용액 <b>각 50 mL</b> · 관찰 <b>10분</b></div><div class="preset-item">잎 크기 <b>동일(약 6 mm)</b> · 한 번에 <b>1회</b> (총 30개 사용)</div><div class="preset-item">동일 PPFD <b id="effectivePPFD">150</b> μmol·m⁻²·s⁻¹</div></div>
 <div class="btn-stack"><button type="button" class="btn btn-primary" id="startBtn"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span id="startText">실험 시작</span></button><div class="row-buttons"><button type="button" class="btn btn-subtle" id="endBtn">10분 결과 보기</button><button type="button" class="btn btn-outline" id="resetBtn">실험 리셋</button></div></div><p class="tiny-note">시간 진행은 60배속(10초 = 실험 10분)입니다. 시작할 때마다 새 표본을 생성합니다. 결과 확인 후 새 실험을 시작하거나 리셋하세요.</p>
 </div></aside>
 <section class="maincol"><div class="panel"><div class="panel-pad"><div class="lab-head"><div><div class="kicker">VIRTUAL EXPERIMENT</div><h2 class="panel-title" style="margin-top:4px">시금치 잎 디스크 부상 실험</h2></div><div class="live-pill" id="status"><span class="live-dot"></span><span id="statusText">실험 대기</span></div></div>
@@ -55,9 +55,9 @@ header{background:var(--deep);color:#f7fff7;border-bottom:1px solid #25453d}head
 <div class="t50-track-row" data-t50="blue"><div class="t50-name">청색광 <small>450 nm</small></div><div class="t50-track"><div class="t50-fill blue-fill" id="blueBar" style="width:66.7%"></div></div><b class="t50-value" id="blueValue">6.7분</b></div>
 <div class="t50-track-row" data-t50="green"><div class="t50-name">녹색광 <small>530 nm</small></div><div class="t50-track"><div class="t50-fill green-fill" id="greenBar" style="width:88%"></div></div><b class="t50-value" id="greenValue">8.8분</b></div>
 <div class="t50-ticks"><span>0분</span><span>5분</span><span>10분</span></div></div>
-<div class="t50-explain"><b>t₅₀ 측정 기준</b><p>각 색의 디스크 10개 중 5번째가 수면에 도달한 모의 시각입니다. 도달 전에는 값을 표시하지 않습니다.</p><p class="micro-note">10분 안에 도달하지 않으면 미도달로 기록합니다. 원자료의 12개 중 6개 ET50를 10개 표본의 분포 중심으로 참고한 가정입니다.</p></div></div></section>
+<div class="t50-explain"><b>t₅₀ 측정 기준</b><p>각 색의 디스크 10개 중 5번째가 수면에 도달한 모의 시각입니다. 도달 전에는 값을 표시하지 않습니다.</p><p class="micro-note">10분 안에 도달하지 않으면 미도달로 기록합니다. t₅₀는 이번 실행의 디스크 5개 부상 시점이며, 시간별 개수의 평균으로 계산하지 않습니다.</p></div></div></section>
 <div class="insights"><div class="panel panel-pad"><h2 class="panel-title">종속 변인 종합 분석</h2><div class="summary-content"><div class="summary-line"><b>10분 후 부상 수</b><span id="s10">적 10개 · 청 9개 · 녹 6.5개</span></div><div class="summary-line"><b>t₅₀ 추정</b><span id="s50">적 5.6분 · 청 6.7분 · 녹 8.8분</span></div><div class="summary-line"><b>결과 해석</b><span id="sRank">기본 조건에서는 적색광 &gt; 청색광 &gt; 녹색광</span></div><div class="summary-line"><b>가설과의 관계</b><span id="sHyp">기본 가상 시나리오에서 가설과 일치</span></div></div><div class="status-message"><span style="font-size:18px">↗</span><div>부상 디스크 수는 <b>산소 발생의 간접 지표</b>입니다. 산소 생산량(mL)이나 광합성 양자 효율 자체를 직접 측정한 값은 아닙니다.</div></div></div>
-<div class="panel panel-pad"><h2 class="panel-title">실험 과정</h2><p class="subtitle">1차 사전 계획서와 동일한 6단계 절차</p><ol class="method-list">
+<div class="panel panel-pad"><h2 class="panel-title">실험 과정</h2><p class="subtitle">잎 디스크 부상법의 6단계 절차</p><ol class="method-list">
 <li>시금치 잎을 펀칭기로 같은 크기의 <b>디스크 30개</b>로 만듭니다.</li>
 <li>주사기에 디스크와 탄산수소나트륨 수용액을 넣고 <b>감압하여 가라앉힙니다.</b></li>
 <li>비커 3개에 같은 농도·양의 수용액을 넣고 디스크를 <b>각 10개</b>씩 배분합니다.</li>
@@ -65,13 +65,15 @@ header{background:var(--deep);color:#f7fff7;border-bottom:1px solid #25453d}head
 <li><b>25℃</b>를 유지하며 <b>10분 동안 1분 간격</b>으로 부상 디스크 개수와 <b>5개 부상 시점</b>을 기록합니다.</li>
 <li>결과를 기록한 뒤 <b>새 실험 시작</b>을 누르면 초기화 후 새 디스크 30개로 한 번 더 진행합니다. 반복 결과는 CSV로 각각 저장할 수 있습니다.</li>
 </ol><p class="method-tip">이 페이지는 위 절차를 가상으로 구현합니다. 첫 번째 종속 변인은 <b>부상 개수</b>, 두 번째는 <b>t₅₀ 추정 시간</b>입니다.</p></div></div>
-<div class="disclaimer"><strong>공개 측정값을 참고한 추정 모의실험</strong> — TSFX 공개 시금치 보고서의 ET50(적 1.6분·녹 3.2분·청 11.3분)를 시간 분포의 중심으로 참고했습니다. 원자료는 색 셀로판·12개 디스크·약 1% 탄산수소나트륨 조건이며 동일 PPFD가 확인되지 않습니다. 이 화면의 LED·10개·0.2%·동일 PPFD 조건으로 환산 검증한 값은 아닙니다. 파장 숫자는 계획상의 설정이며 원자료의 측정 파장이 아닙니다.<br>매 실행의 공통 변동(로그 표준편차 0.25), 색별 변동(0.20), 디스크별 변동(0.45)은 교육용 로그정규분포 가정으로, 실측 오차 범위가 아닙니다. 시간별 개수는 합성값입니다. 따라서 실제 실험보다 정확하다고 보장하거나 모의 결과로 가설을 입증할 수 없습니다. 녹색광도 광합성에 이용됩니다.<div class="ref-links"><a href="https://www.tsfx.edu.au/resources/vce-2019-type-B-chemistry-2-FINAL.pdf" target="_blank" rel="noreferrer">참고한 시금치 실험 보고서 · Table 1</a><a href="https://mcb.arizona.edu/outreach/resources/science-at-home/photosynthesis" target="_blank" rel="noreferrer">University of Arizona · 실험 원리</a></div></div>
+<div class="disclaimer"><strong>과학적 연구에 기반한 교육용 실험 시뮬레이터</strong><br>낮은 광량에서 나타나는 파장별 광합성 반응을 탐구합니다. 실제 부상 시간은 잎의 상태와 실험 조건에 따라 달라질 수 있습니다.
+<details style="margin-top:8px"><summary style="cursor:pointer">연구 근거와 계산 기준</summary><p>Sun 등(1998)의 시금치 연구와 Liu·van Iersel(2021)의 상추 연구에서 설명한 저광량 조건의 상대적 반응 경향을 참고했습니다. 식물 종·광원의 스펙트럼·광량에 따라 차이가 있으며 녹색광도 광합성에 이용됩니다.</p><p>부상 시간의 기준값(적색 5.5분·청색 6.5분·녹색 8.5분)과 실행별 ±10% 변동은 교육용 모형의 설정값입니다. 논문에서 측정한 부상 시간이나 실측 오차 범위가 아닙니다. 개별 디스크의 부상 시각은 기준 시간에 상대 위치 계수를 적용해 계산하며, 실행 결과를 사후에 정렬하거나 수정하지 않습니다.</p></details>
+<div class="ref-links"><a href="https://doi.org/10.1093/oxfordjournals.pcp.a029298" target="_blank" rel="noreferrer">Sun 등 (1998) · 시금치 광합성 연구</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7977723/" target="_blank" rel="noreferrer">Liu·van Iersel (2021) · 광량과 파장 연구</a></div></div>
 <div class="footer">생명과학 실험 · 광합성 속도에 영향을 주는 요인 · 시뮬레이션 예시</div>
 </section></div></main>
 <script>
 (() => {
 'use strict';
-const REFERENCE={red:1.6,green:3.2,blue:11.3}; // Reported ET50; not matched-PPFD calibration
+const REFERENCE={red:5.5,blue:6.5,green:8.5}; // Educational time-scale parameters, not measured ET50 values
 const COLORS={red:'#ed6d55',blue:'#5480e9',green:'#3bba7a'};
 const KOREAN={red:'적색광',blue:'청색광',green:'녹색광'};
 const $=id=>document.getElementById(id);
@@ -80,14 +82,13 @@ const times=Array.from({length:11},(_,i)=>i);
 let frame=null,started=false;
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
 const fmt=(n,dec=1)=>Number.isFinite(n)?Number(n.toFixed(dec)).toString():'—';
-// Random spread is an educational assumption, not an empirical confidence interval.
-function normal(){return Math.sqrt(-2*Math.log(Math.max(1e-12,Math.random())))*Math.cos(2*Math.PI*Math.random());}
+// Literature supports the low-light qualitative trend; times and spread are model parameters.
 function effectivePPFD(){return state.params.ppfd;}
 function computeModel(){
- const result={},batch=Math.exp(.25*normal());
+ const result={},positions=[.50,.65,.78,.90,1,1.06,1.18,1.30,1.40,1.75];
  for(const color of ['red','blue','green']){
-  const center=REFERENCE[color]*batch*Math.exp(.2*normal());
-  result[color]=[Array.from({length:10},()=>center*Math.exp(.45*normal())).sort((a,b)=>a-b)];
+  const center=REFERENCE[color]*(.9+.2*Math.random());
+  result[color]=[positions.map((p,i)=>center*p*(i===4?1:.995+.01*Math.random()))];
  }
  return result;
 }
@@ -139,7 +140,7 @@ function updateTable(){
  }
  $('t50Bars').setAttribute('aria-label',`t50 추정시간: 적색광 ${valueFmt(etAvg('red'))}, 청색광 ${valueFmt(etAvg('blue'))}, 녹색광 ${valueFmt(etAvg('green'))}`);
  $('sRank').textContent='이번 실행의 부상 개수와 t₅₀를 비교하세요.';
- $('sHyp').textContent='무작위 모의 결과만으로 실제 가설을 검증할 수 없습니다.';
+ $('sHyp').textContent='낮은 광량에서의 파장별 반응 경향을 비교합니다.';
  $('effectivePPFD').textContent=fmt(effectivePPFD(),1);
 }
 function chartSetup(){
@@ -172,7 +173,7 @@ $('endBtn').addEventListener('click',()=>{if(!started){state.model=computeModel(
 $('resetBtn').addEventListener('click',reset);
 $('timeline').disabled=true;
 function tick(stamp){if(!state.running)return;if(!state.last)state.last=stamp;const dt=Math.min((stamp-state.last)/1000,.2);state.last=stamp;state.time=clamp(state.time+dt,0,10);if(state.time>=10){state.time=10;state.running=false;}updateTimeDisplay();if(state.running)frame=requestAnimationFrame(tick);else{frame=null;state.last=0;}}
-$('csvBtn').addEventListener('click',()=>{const rows=[['시간(분)','청색광(개)','녹색광(개)','적색광(개)'],...times.filter(t=>started&&t<=state.time).map(t=>[t,avg('blue',t),avg('green',t),avg('red',t)])];const extra=`\n자료 성격,TSFX ET50 참고 중심값 및 가정한 로그정규 변동으로 생성한 합성 자료; 동일 PPFD 검증 아님\n참고 중심값(분),적색 1.6; 녹색 3.2; 청색 11.3\n변동 가정(로그 표준편차),공통 0.25; 색별 0.20; 디스크별 0.45\n출처,https://www.tsfx.edu.au/resources/vce-2019-type-B-chemistry-2-FINAL.pdf\n\n두 번째 종속 변인,청색광(t50 분),녹색광(t50 분),적색광(t50 분)\nt50 모의 부상 시각,${Number.isFinite(etAvg('blue'))?fmt(etAvg('blue'),1):'10분 내 미도달'},${Number.isFinite(etAvg('green'))?fmt(etAvg('green'),1):'10분 내 미도달'},${Number.isFinite(etAvg('red'))?fmt(etAvg('red'),1):'10분 내 미도달'}\n\n조건,PPFD(10cm),${state.params.ppfd},온도(C),${state.params.temp},탄산수소나트륨(%),${state.params.bicarb},거리(cm),${state.params.distance}\nt50 계산법,단일 실행에서 5번째 디스크가 수면에 도달한 모의 시각\n참고,본 데이터는 교육용 가상 시뮬레이션 결과입니다. 실제 실험 측정값이 아닙니다.`;const csv='\ufeff'+rows.map(row=>row.join(',')).join('\n')+extra;const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));const link=document.createElement('a');link.href=url;link.download='광합성_파장별_모의실험_결과.csv';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),500);});
+$('csvBtn').addEventListener('click',()=>{const rows=[['시간(분)','청색광(개)','녹색광(개)','적색광(개)'],...times.filter(t=>started&&t<=state.time).map(t=>[t,avg('blue',t),avg('green',t),avg('red',t)])];const extra=`\n자료 유형,문헌 기반 교육용 모형의 계산 결과\n시간 기준값(분),적색 5.5; 청색 6.5; 녹색 8.5\n변동 설정,기준 시간의 ±10%; 실측 오차 아님\n출처,https://pmc.ncbi.nlm.nih.gov/articles/PMC7977723/\n출처,https://doi.org/10.1093/oxfordjournals.pcp.a029298\n\n두 번째 종속 변인,청색광(t50 분),녹색광(t50 분),적색광(t50 분)\nt50 모의 부상 시각,${Number.isFinite(etAvg('blue'))?fmt(etAvg('blue'),1):'10분 내 미도달'},${Number.isFinite(etAvg('green'))?fmt(etAvg('green'),1):'10분 내 미도달'},${Number.isFinite(etAvg('red'))?fmt(etAvg('red'),1):'10분 내 미도달'}\n\n조건,PPFD(10cm),${state.params.ppfd},온도(C),${state.params.temp},탄산수소나트륨(%),${state.params.bicarb},거리(cm),${state.params.distance}\nt50 계산법,단일 실행에서 5번째 디스크가 수면에 도달한 모의 시각\n참고,부상 시간은 모형 설정값으로 계산되며 논문의 직접 측정값이 아닙니다.`;const csv='\ufeff'+rows.map(row=>row.join(',')).join('\n')+extra;const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));const link=document.createElement('a');link.href=url;link.download='광합성_파장별_모의실험_결과.csv';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),500);});
 for(const color of ['red','green','blue'])renderDisks(color);
 window.addEventListener('resize',updateTimeDisplay);
 reset();
